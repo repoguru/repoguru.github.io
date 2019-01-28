@@ -1,0 +1,369 @@
+html, body {
+  height:100%;
+  font-family: serif;
+  font-size: 25px;
+  /*  overflow-y: scroll;*/
+  scroll-behavior: smooth;
+}
+
+
+/*html {
+  background-color: lightgray;
+  background: url('backgroundEdit.JPG');
+  background-size: 100%;
+}*/
+
+div {
+  overflow: hidden;
+}
+
+/*a {
+  color: #322bff;
+  text-decoration: underline;
+  transition: 500ms;
+}
+a:hover {
+  color: #26a1ff;
+}*/
+
+p {
+  padding: 0 5%;
+}
+
+img {
+  box-shadow: 0px 0px 4px #000;
+}
+
+.anchor {
+  display: block;
+  height: 160px; /*same height as header*/
+  margin-top: -160px; /*same height as header*/
+  visibility: hidden;
+}
+
+#header {
+  background: white;
+  /*padding: 1%;*/
+  overflow: hidden;
+  height: 150px;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  padding: 0 5%;
+}
+
+#header img {
+  float: left;
+  box-shadow: none;
+  height: 100px;
+  width: 100px;
+  margin: 25px;
+
+}
+#header ul {
+    list-style: none;
+    position: absolute;
+    padding-right: 400px;
+    margin-top: 75px;
+    /* bottom: auto; */
+    right: 0;
+  }
+
+#header ul li {
+  float: left;
+  margin-left: 10px;
+  font-size: 24px;
+  display: block;
+  margin: 0 10px;
+  letter-spacing: .05rem;
+  padding-right: 15px;
+}
+
+#header ul li a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#header ul li a:hover {
+  color: red;
+  text-decoration: underline;
+  
+}
+
+.fullscreen {
+   height: 100%;
+   background: url("images/TopBackground.jpg") fixed;
+   background-size:     cover;                      /* <------ */
+   background-repeat:   no-repeat;
+   background-position: center center;
+
+   border-bottom: solid white 10px;
+}
+
+/*.headerDiv{
+    background: url("TopBackground.jpg") fixed;
+    height: auto;
+}*/
+
+.fullscreen .header {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  text-shadow: 0px 0px 2px #000;
+  /*border-bottom: solid white 10px;*/
+}
+
+.white {
+  background: #eeeeec;
+  padding: 0 5%;
+
+}
+
+.nobg {
+  background: none;
+  padding: 0 5%;
+  color: #fff;
+  text-shadow: 0px 0px 4px #000;
+}
+.semitrans {
+    background-color: green;
+    background-image: url(images/pexels-photo-872958.jpeg);
+    height: 700px;
+    background-repeat: no-repeat;
+    padding: 0 5%;
+    background-size: cover;
+    border-bottom: solid #72aeeb 10px;
+    position: static;
+
+}
+.dark {
+  color: #eeeeec;
+  background: #010105;
+  padding: 0 5%;
+  text-align: center;
+}
+
+.nopadding {
+  padding: 0;
+}
+
+.floatleft {
+  float: left;
+  margin: 2%;
+  height: 50px;
+  width: 50px;
+}
+.floatright {
+  float: right;
+  margin 2%;
+  height: 50px;
+  width: 50px;
+}
+
+.more {
+  text-align: center;
+  font-size: 17px;
+}
+.more a {
+  color: #aaa;
+  text-decoration: none;
+  cursor: pointer;
+}
+.more a:hover {
+  color: #777;
+}
+
+#chatbot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: static;
+    padding: 80px;
+    background: url('images/backgroundEdit.JPG');
+    background-size: 100%;
+    min-height: 800px;
+    height: 70%;
+}
+
+.chatbotDiv {
+  width: 100%;
+  height: 750px;
+  min-height: 700px;
+  position: static;
+  overflow: hidden;
+}
+
+.iframe { 
+  width: 100%;
+  height: 100%;
+  frameborder:0;
+  position: static;
+  left:0;
+  right:0;
+  bottom:0;
+  top:0;
+  border:0;"
+}
+
+.center {
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-right: 600px;
+}
+
+.lead {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.4;
+}
+
+/*.fa {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 3em;
+}*/
+
+.diagram {
+  float: left;
+  width: 33%;
+}
+
+.image-diagram img{
+  height: 150px;
+  width: 150px;
+  box-shadow: none;
+}
+
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #25B7D3;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+
+.middle {
+    text-align: center;
+font-size: 2em;
+margin-bottom: 10px;
+text-transform: uppercase;
+font-weight: bold;
+color: #32BEA6;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+h1{
+	color: #32BEA6;
+}
+
+
+
+
+
+.brace {
+	width: 50%;
+	min-width: 35px;
+	padding-bottom: 20px;
+	font-size: 2em;
+	line-height: 2em;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	/* margin: 0 15px 15px; */
+	border: none;
+	background-color: transparent;
+	background-image: radial-gradient(circle at 0 0, rgba(255,255,255,0) 14.5px, #fff 15.5px, #fff 19.5px, rgba(255,255,255,0) 20.5px), radial-gradient(circle at 35px 0, rgba(255,255,255,0) 14.5px, #fff 15.5px, #fff 19.5px, rgba(255,255,255,0) 20.5px);
+	background-size: 35px 20px;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	text-transform: lowercase;
+	font-style: italic;
+	color: #fff;
+	-webkit-filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+	filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+	overflow: visible;
+}
+.brace:before {
+  width: 50%;
+  border-top: 5px solid #fff;
+  border-left: 1px solid transparent; /* play with this until you like the look of it */
+  border-top-left-radius: 20% 30px;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: -15px;
+  box-sizing: border-box;
+  margin-top: -5px;
+}
+.brace:after {
+  width: 50%;
+  border-top: 5px solid #fff;
+  border-right: 1px solid transparent; /* play with this until you like the look of it */
+  border-top-right-radius: 20% 30px;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: -15px;
+  box-sizing: border-box;
+  margin-top: -5px;
+}
+
+
+
+.contact-header {
+	font-family: serif;	
+	font-size: 30px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 0 0;
+	font-weight: bold;
+}
+
+.contact {
+	font-size: 20px;
+	margin: 10px auto;
+	padding: 0 0;
+}
+
+
+.social {
+	text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-top: 20px;
+    padding-left: 15px;
+
+}
+
+.social-account {
+/*	left: 50%;
+	float: left;*/
+	margin-right: 30px;
+	width: 32px;
+	height: 32px;
+/*	background-color: white;
+*/}
+
+
+.copyright {
+	font-size: 20px;
+	margin-top: 20px;
+    margin-bottom: 5px;
+}
+

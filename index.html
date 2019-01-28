@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+
+<html>  
+<head>
+  <title>MSRBot</title>
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<body>
+
+  <div id="header">
+    <img src="images/MSRBot-logo.png" width="50px" />
+
+      <ul id="ul">
+        <li id="li"><a href="#home">Home</a></li>
+        <li id="li"><a href="#about">About</a></li>
+        <li id="li"><a href="#MSRBot">Try Me!</a></li>
+      </ul>
+
+  </div>
+
+  <div class="fullscreen nopadding" id="home"></div>
+    <span class="anchor" id="about"></span>
+  <div class="semitrans" >
+
+    <!-- <div> --> <h1>How it Works:</h1> <!-- </div> -->
+   <!--  <div> 
+        <div class="left-explain">
+          <p>The user enters his choosen repository information. The repository is mined for data. MSRBot is now ready to chat.</p>
+          
+        </div> -->
+      <div class="center">
+        <div class="diagram" >
+          <div class="image-diagram" "><img src="images/EnterRepo.png"></div>
+          <div>
+            <h2>Enter</h2>
+            <hr class="brace">
+            <p><br>Enter your desired repository for<br> the MSRBot to analyze.</p>
+          </div>
+        </div>
+        <div class="diagram" >
+          <div class="image-diagram" "><img src="images/Analize.png"></div>
+          <div>
+            <h2 class="middle">Analyze</h2>
+            <hr class="brace">
+            <p><br>Data from the chosen repository<br> is extarcted and analyzed.</p>
+          </div>
+        </div>
+        <div class="diagram" >
+          <div class="image-diagram" "><img src="images/Chat.png"></div>
+          <div>
+            <h2>Chat</h2>
+            <hr class="brace">
+            <p><br>MSRBot is now ready to chat<br> with you!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <span class="anchor" id="MSRBot"></span>
+  <section id="chatbot">
+    <div class="chatbotDiv">
+      <iframe src="https://msrbot.github.io/" class="iframe">
+      </iframe>
+    </div>
+  </section>
+
+  <div class="dark">
+
+    <p class="contact-header">Contact Us</p>
+<!--     <p class="contact">emadshihab@gmail.com</p>
+ -->    <!-- <p class="contact">+ 01 555 555 5555</p> -->
+
+    <div class="social">
+      <img class="social-account" src="images/email_color.png">
+      <img class="social-account" src="images/facebook_color.png">
+      <img class="social-account" src="images/twitter_color.png">
+      <img class="social-account" src="images/google_color.png">
+    </div>
+
+    <p class="copyright"> &copy; Copyright 2018-2019 MSRBot</p>
+
+
+
+
+
+
+
+
+  </div>
+
+    <script>
+      $(document).ready(function() {
+        $("#more").click(function() {
+          $('html, body').animate({
+            scrollTop: $('#test').offset().top
+          },1000); 
+        });
+      });
+    </script>
+  
+
+</body>
+</html>
