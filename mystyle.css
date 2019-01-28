@@ -36,37 +36,44 @@ img {
 
 .anchor {
   display: block;
-  height: 160px; /*same height as header*/
-  margin-top: -160px; /*same height as header*/
+  height: 100px; /*same height as header*/
+  margin-top: -100px; /*same height as header*/
   visibility: hidden;
 }
 
 #header {
-  background: white;
-  /*padding: 1%;*/
-  overflow: hidden;
-  height: 150px;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
-  padding: 0 5%;
+    background: white;
+    /* padding: 1%; */
+    overflow: hidden;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    width: -webkit-fill-available;
+    padding: 0 5%;
 }
 
 #header img {
   float: left;
   box-shadow: none;
-  height: 100px;
-  width: 100px;
-  margin: 25px;
+  height: 80px;
+  width: 80px;
+  margin: 10px;
 
 }
 #header ul {
+    float: right;
+    /* margin: auto; */
     list-style: none;
-    position: absolute;
-    padding-right: 400px;
-    margin-top: 75px;
+    /* position: absolute; */
+    /* padding-right: 400px; */
+    /* margin-top: 75px; */
     /* bottom: auto; */
-    right: 0;
+    /* right: 0; */
+    /* top: 50%; */
+    padding-top: 40px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 30px;
   }
 
 #header ul li {
@@ -181,19 +188,20 @@ img {
     align-items: center;
     justify-content: center;
     position: static;
-    padding: 80px;
-    background: url('images/backgroundEdit.jpg');
-    background-size: 100%;
-    min-height: 800px;
+    padding: 30px;
+    background: url(images/backgroundEdit.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* min-height: 800px; */
     height: 70%;
 }
 
 .chatbotDiv {
-  width: 100%;
-  height: 750px;
-  min-height: 700px;
-  position: static;
-  overflow: hidden;
+    width: 100%;
+    height: 100%;
+    /* min-height: 700px; */
+    position: static;
+    overflow: hidden;
 }
 
 .iframe { 
@@ -212,7 +220,7 @@ img {
     text-align: center;
     box-sizing: border-box;
     overflow: hidden;
-    margin-right: 600px;
+    margin-right: 25%;
 }
 
 .lead {
@@ -367,3 +375,8 @@ h1{
     margin-bottom: 5px;
 }
 
+@media screen and (max-width: 1400px) {
+  .center {
+    margin-right: 10%;
+    }
+}
