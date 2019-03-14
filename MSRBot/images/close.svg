@@ -1,0 +1,14 @@
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <ellipse stroke="#0085fe" ry="7.198512" rx="7.198512" id="svg_1" cy="8" cx="8" stroke-width="1.5" fill="#0085fe"/>
+  <path stroke="#ffffff" fill="none" stroke-width="2" stroke-miterlimit="4" id="path2985-1" d="m4.792734,4.792734l6.414532,6.414532"/>
+  <path stroke="#ffffff" fill="none" stroke-width="2" stroke-miterlimit="4" id="path2985" d="m4.76866,11.23134l6.46268,-6.46268"/>
+  <ellipse id="svg_2" cy="2.276852" cx="14.2034" stroke-width="1.5" stroke="#03a9f4" fill="#03a9f4"/>
+ </g>
+</svg>

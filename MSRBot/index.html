@@ -1,304 +1,49 @@
-<html>
-<head>
- 
-  <title>MSRBot</title>
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+<!DOCTYPE html>
+<html lang="en" >
 
+<head>
+  <meta charset="UTF-8">
+  <title>MSRBot</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.min.css'>
+  <link rel="stylesheet" href="css/style.css">
+  
 </head>
 
 <body>
-<div class="chat_window">
-
-  <ul class="messages" id="MessageContainer"></ul>
-  <div class="bottom_wrapper clearfix">
-
-    <div id="container">
-      <div id="ball-1" class="circle"></div>
-      <div id="ball-2" class="circle"></div>
-      <div id="ball-3" class="circle"></div>
-    </div>
+<div class="welcome-button" id="welcome-button"></div>
 
 
-    <div class="user_input">
 
-    <div class="message_input_wrapper">
-      <input class="message_input" placeholder="Type your message here..." />
-      <img class="send_icon" id="send_icon" src='send_icon32.png' alt=''>
-    </div>
-
-    <div class="menu_options">
-      <div class="attachment_icon" id="target"> </div>
-
-      <div id="myDropdown" class="dropdown-content">
-        <a id="Hibernate" href="#">Hibernate</a>
-        <a id="Kafka"  href="#">Kafka</a>
-      </div>
-
-       
-    </div>
+<div class="chat" id="chat">
+  <div class="chat-title" id="chat-title">
+    <h1>MSRBot</h1>
+    <h2>Mining Repositories</h2>
+    <figure class="avatar">
+      <img src="images\bot.png" /></figure>
+  </div>
+  <div class="messages">
+    <div class="messages-content"></div>
+  </div>
+  <div class="message-box">
+    <textarea type="text" class="message-input" placeholder="Type your message here..."></textarea>
+    <button type="submit" class="message-submit">Send</button>
+  </div>
 
 </div>
-  <div class="message_template">
-    <li class="message">
-      <div class="avatar">
-      </div>
-      <div class="text_wrapper">
-        <div class="text">
-        </div>
-      </div>
-    </li>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script>
+<div class="bg"></div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js'></script>
 
+  
 
-      var GlobalProjectID = -1;
-
-      (
-      function () {
-    var Message;
-    Message = function (arg) {
-        this.text = arg.text, this.message_side = arg.message_side;
-        this.draw = function (_this) {
-            return function () {
-                var $message;
-                $message = $($('.message_template').clone().html());
-                $message.addClass(_this.message_side).find('.text').html(_this.text);
-                $('.messages').append($message);
-                return setTimeout(function () {
-                    return $message.addClass('appeared');
-                }, 0);
-            };
-        }(this);
-        return this;
-    };
-    $(function () {
-        var getMessageText, message_side, sendMessage, callServer;
-        message_side = 'left';
-        getMessageText = function () {
-            var $message_input;
-            $message_input = $('.message_input');
-            return $message_input.val();
-        };
-        sendMessage = function (text) {
-            var $messages, message;
-            if (text.trim() === '') {
-                return;
-            }
-      callServer(text, GlobalProjectID)
-            $('.message_input').val('');
-            $messages = $('.messages');
-            message_side = 'right';
-            message = new Message({
-                text: text,
-                message_side: message_side
-            });
-            message.draw();
-            return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
-        };
-
-
-      callServer = function(enteredText, var_projectID) {
-        var cor = null; // cor stands alr Cross-Origin request
-        if (window.XMLHttpRequest) {
-            cor = new XMLHttpRequest();
-        }
-        else if (window.XDomainRequest) {
-            cor = new XDomainRequest();
-        }
-        else {
-            alert("Your browser does not support Cross-Origin request!");
-            return;
-        }
-
-        cor.onreadystatechange = function () {
-          // console.log(cor)
-            if (cor.readyState == 4) {
-                // alert("Server" + cor.responseText);
-
-                //===================================================================
-                var circles =  document.getElementsByClassName('circle');
-                for(i=0; i<circles.length; i++) {
-                  circles[i].style.backgroundColor = 'transparent';
-                }
-
-
-                //This function scrolls to top when bot's message is sent.
-                function top() {
-                  $messages = $('.messages'); 
-                  return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300) ;
-                };
-
-                top();
-
-
-                $messages = $('.messages');
-                message_side = 'left';
-                message = new Message({
-                    text: cor.responseText.replace(/\n/g, "<br />"),
-                    message_side: 'left'
-                });
-                message.draw();
-            }
-        };
-
-        cor.open('POST', 'https://955b713a.ngrok.io/oz', true);
-        cor.withCredential = "true";
-        cor.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        
-        // cor.send('userMsg=' + enteredText + "&projectID=" + 1);
-        cor.send('userMsg=' + enteredText + "&projectID=" + var_projectID);
-        // alert("In callServer, Message being sent is:");
-        // alert('userMsg=' + enteredText + "&projectID=" + var_projectID);
-
-
-        //cor.send('projectID=' + enteredText);
-    }
-
-        $('.send_icon').click(function (e) {
-               $sendIcon = document.getElementById("send_icon") ;
-               $sendIcon.style.opacity = 0.3;
-
-               //***********************************************
-                var circles =  document.getElementsByClassName('circle');
-                for(i=0; i<circles.length; i++) {
-                  circles[i].style.backgroundColor = "#0085FE";
-                }
-
-                setTimeout(function(){var x; x=0;}, 12000);
-
-
-            return sendMessage(getMessageText(), GlobalProjectID);
-        });
-        $('.message_input').keyup(function (e) {
-            if (e.which === 13) {
-
-              //***********************************************
-              var circles =  document.getElementsByClassName('circle');
-              for(i=0; i<circles.length; i++) {
-                circles[i].style.backgroundColor = "#0085FE";
-              }
+    <script src="js/index.js"></script>
 
 
 
 
-              $sendIcon = document.getElementById("send_icon") ;
-               $sendIcon.style.opacity = 0.3;
-                return sendMessage(getMessageText(), GlobalProjectID);
-            } else {}
-
-            $sendIcon = document.getElementById("send_icon") ;
-            if(getMessageText() == null || getMessageText() == "") {
-               $sendIcon.style.opacity = 0.3;
-             } else{
-            // alert($sendIcon.opacity);
-            $sendIcon.style.opacity = 1.0;
-          }
-        
-        });
-
-
-
-
-        $messages = $('.messages');
-                message_side = message_side === 'left' ? 'right' : 'left';
-                message = new Message({
-                    text: "Hi, please state your question to me?",
-                    message_side: 'left'
-                });
-                message.draw();
-    });
-}.call(this));
-
-
-$( "#target" ).click(function() {
-  document.getElementById("myDropdown").style.display = "grid";
-});
-
-window.onclick = function(event) {
-  if (!event.target.matches("#target")) {
-      document.getElementById("myDropdown").style.display = "none";
-  }
-}
-
-
-$( "#Hibernate" ).click(function() {
-
-  // callServerForProject("2");
-
-    // alert("in Hibernate old GlobalProjectID")
-    // alert(GlobalProjectID)
-      GlobalProjectID = 2;
-    // alert("in Hibernate, new GlobalProjectID")
-    // alert(GlobalProjectID)
-});
-
-
-$( "#Kafka" ).click(function() {
-    // callServerForProject("1");
-    // alert("in Kafka, old GlobalProjectID")
-    // alert(GlobalProjectID)
-      GlobalProjectID = 1;
-    // alert("in Kafka, new GlobalProjectID")
-    // alert(GlobalProjectID)
-});
-
-
-  callServerForProject = function(enteredText) {
-    var cor = null; // cor stands for Cross-Origin request
-    if (window.XMLHttpRequest) {
-        cor = new XMLHttpRequest();
-    }
-
-    else {
-        alert("Your browser does not support Cross-Origin request!");
-        return;
-    }
-
-
-        //  cor.onreadystatechange = function () {
-        //   // console.log(cor)
-        //     if (cor.readyState == 4) {
-        //         // alert("Server" + cor.responseText);
-
-        //         //===================================================================
-        //         var circles =  document.getElementsByClassName('circle');
-        //         for(i=0; i<circles.length; i++) {
-        //           circles[i].style.backgroundColor = 'transparent';
-        //         }
-
-
-        //         //This function scrolls to top when bot's message is sent.
-        //         function top() {
-        //           $messages = $('.messages'); 
-        //           return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300) ;
-        //         };
-
-        //         top();
-
-
-        //         $messages = $('.messages');
-        //         message_side = 'left';
-        //         message = new Message({
-        //             text: cor.responseText.replace(/\n/g, "<br />"),
-        //             message_side: 'left'
-        //         });
-        //         message.draw();
-        //     }
-        // };
-
-      // change url http://127.0.0.1:6543. with callServer as well.
-    cor.open('POST', 'https://955b713a.ngrok.io/oz', true);
-    cor.withCredential = "true";
-    cor.setRequestHeader("Content-type", "application/x-www-alrm-urlencoded");
-    cor.send('projectID=' + enteredText);
-
-}
-
-
-
-
-    </script>
 </body>
+
 </html>
