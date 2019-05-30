@@ -187,7 +187,7 @@ callServer = function(enteredText, var_projectID) {
         };
         
 
-        cor.open('POST', 'http://858973a4.ngrok.io/oz', true);
+        cor.open('POST', 'https://858973a4.ngrok.io/oz', true);
         cor.withCredential = "true";
         cor.setRequestHeader("Content-type", "application/x-www-form-urlencoded");       
         cor.send('userMsg=' + enteredText + "&projectID=" + var_projectID);
