@@ -55,7 +55,7 @@ function insertMessage() {
   $('.message-input').val(null);
   updateScrollbar();
   setTimeout(function() {
-    callServer(msg,GlobalProjectID);
+    callServer(msg);
   }, 1000 + (Math.random() * 20) * 100);
 }
 
