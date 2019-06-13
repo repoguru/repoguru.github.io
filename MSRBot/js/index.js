@@ -1,7 +1,5 @@
 
-GlobalProjectID = -1;
 WasTheButtonPressed = false;
-
 
 var $messages = $('.messages-content'),
     d, h, m,
@@ -104,16 +102,17 @@ function SecondMessage() {
     i++;
   }, 1000);
 
-
+    // This creates the buttons for the Kafka and Hibernate projects. On click, corresponding functions are called to
+    // send a msg to the server with the projectID.
   setTimeout(function() {
-    $('<Button class="repository_Button" onclick=" GlobalProjectID = 1;" id="Kafka"> Kafka </Button>').appendTo($('.mCSB_container')).addClass('new');
+    $('<Button class="repository_Button" onclick=" KafkaClick();" id="Kafka"> Kafka </Button>').appendTo($('.mCSB_container')).addClass('new');
     setDate();
     updateScrollbar();
     i++;
   }, 2000);
 
   setTimeout(function() {
-    $('<Button class="repository_Button" onclick="GlobalProjectID = 2; " id="Hibernate"> Hibernate </Button>').appendTo($('.mCSB_container')).addClass('new');
+    $('<Button class="repository_Button" onclick="HibernateClick() " id="Hibernate"> Hibernate </Button>').appendTo($('.mCSB_container')).addClass('new');
     setDate();
     updateScrollbar();
     i++;
@@ -121,24 +120,22 @@ function SecondMessage() {
 
 }
 
-// set up event listener for clicking Kafka And Heibernate buttons.
-// Change the GlobalProjectID and use it when sending a query to the server.
-$( "#Kafka" ).click(function() {
-      GlobalProjectID = 1;
-      alert('Kafka');
-});
+// This function is called when the Kafka button is pressed. It calls the server and sends a msg with the Kafka projectID
+// so that Rasa does its actions on the Kafka project DB
+  function KafkaClick() {
+        msgText = "/ChooseProject{\"ProjectID\" : \"160589817614363620869739136112460307838\"}";
+        callServer(msgText);
+  }
 
-
-$( "#Hibernate" ).click(function() {
-      GlobalProjectID = 2;
-      alert('Hibernate');
-});
+// This function is called when the Hibernate button is pressed. It calls the server and sends a msg with the Hibernate projectID
+// so that Rasa does its actions on the Hibernate project DB
+function HibernateClick() {
+    msgText = "/ChooseProject{\"ProjectID\" : \"251524647591854110437404345652251315955\"}";
+    callServer(msgText);
+}
 
 
 function responseMessage(msgText) {
-  // if ($('.message-input').val() != '') {
-  //   return false;
-  // }
 
     $('.message.loading').remove();
     $('<div class="message new"><figure class="avatar"><img src="images/bot.png" /></figure>' + msgText + '</div>').appendTo($('.mCSB_container')).addClass('new');
@@ -160,8 +157,9 @@ $( "#welcome-button" ).click(function() {
   }
 });
 
+const url = "https://6094ca07.ngrok.io/oz";
 
-callServer = function(enteredText, var_projectID) {
+callServer = function(enteredText) {
         var cor = null; // cor stands alr Cross-Origin request
         if (window.XMLHttpRequest) {
             cor = new XMLHttpRequest();
@@ -185,11 +183,9 @@ callServer = function(enteredText, var_projectID) {
 
             }
         };
-        
 
-        cor.open('POST', 'https://858973a4.ngrok.io/oz', true);
-        cor.withCredential = "true";
-        cor.setRequestHeader("Content-type", "application/x-www-form-urlencoded");       
-        cor.send('userMsg=' + enteredText + "&projectID=" + var_projectID);
-
-    }
+        cor.open('POST', url, true);
+        cor.withCredentials = true;
+        cor.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        cor.send('userMsg=' + enteredText);
+    };
