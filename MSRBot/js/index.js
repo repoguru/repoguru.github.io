@@ -146,7 +146,7 @@ function responseMessage(msgText) {
 
 
 $( "#welcome-button" ).click(function() {
-  
+
   $( "#chat" ).toggle( "scale" );
   $("#chat").css("display", "flex");
   $("#chat").css("display", "flex");
@@ -176,7 +176,7 @@ callServer = function(enteredText) {
 
           $('<div class="message loading new"><figure class="avatar"><img src="images/bot.png" /></figure><span></span></div>').appendTo($('.mCSB_container'));
           updateScrollbar();
-          
+
             if (cor.readyState == 4) {
 
               responseMessage(cor.responseText.replace(/\n/g, "<br />"))
