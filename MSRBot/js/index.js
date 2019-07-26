@@ -104,34 +104,34 @@ function SecondMessage() {
 
     // This creates the buttons for the Kafka and Hibernate projects. On click, corresponding functions are called to
     // send a msg to the server with the projectID.
-  setTimeout(function() {
-    $('<Button class="repository_Button" onclick=" KafkaClick();" id="Kafka"> Kafka </Button>').appendTo($('.mCSB_container')).addClass('new');
-    setDate();
-    updateScrollbar();
-    i++;
-  }, 2000);
+//   setTimeout(function() {
+//     $('<Button class="repository_Button" onclick=" KafkaClick();" id="Kafka"> Kafka </Button>').appendTo($('.mCSB_container')).addClass('new');
+//     setDate();
+//     updateScrollbar();
+//     i++;
+//   }, 2000);
 
-  setTimeout(function() {
-    $('<Button class="repository_Button" onclick="HibernateClick() " id="Hibernate"> Hibernate </Button>').appendTo($('.mCSB_container')).addClass('new');
-    setDate();
-    updateScrollbar();
-    i++;
-  }, 2500);
+//   setTimeout(function() {
+//     $('<Button class="repository_Button" onclick="HibernateClick() " id="Hibernate"> Hibernate </Button>').appendTo($('.mCSB_container')).addClass('new');
+//     setDate();
+//     updateScrollbar();
+//     i++;
+//   }, 2500);
 
 }
 
 // This function is called when the Kafka button is pressed. It calls the server and sends a msg with the Kafka projectID
 // so that Rasa does its actions on the Kafka project DB
   function KafkaClick() {
-        msgText = "/ChooseProject{\"ProjectID\" : \"160589817614363620869739136112460307838\"}";
-        callServer(msgText);
+//         msgText = "/ChooseProject{\"ProjectID\" : \"160589817614363620869739136112460307838\"}";
+//         callServer(msgText);
   }
 
 // This function is called when the Hibernate button is pressed. It calls the server and sends a msg with the Hibernate projectID
 // so that Rasa does its actions on the Hibernate project DB
 function HibernateClick() {
-    msgText = "/ChooseProject{\"ProjectID\" : \"251524647591854110437404345652251315955\"}";
-    callServer(msgText);
+//     msgText = "/ChooseProject{\"ProjectID\" : \"251524647591854110437404345652251315955\"}";
+//     callServer(msgText);
 }
 
 
@@ -157,7 +157,7 @@ $( "#welcome-button" ).click(function() {
   }
 });
 
-const url = "https://c85e0abd.ngrok.io/oz";
+const url = "https://e5bb20f4.ngrok.io/oz";
 
 callServer = function(enteredText) {
         var cor = null; // cor stands alr Cross-Origin request
