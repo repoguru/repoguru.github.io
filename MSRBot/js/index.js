@@ -80,7 +80,7 @@ function FirstMessage() {
 
   setTimeout(function() {
     $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="images/bot.png" /></figure>' + "Hi there, how are you?"+ '</div>').appendTo($('.mCSB_container')).addClass('new');
+    $('<div class="message new"><figure class="avatar"><img src="images/bot.png" /></figure>' + "Hi there, how can I help you?"+ '</div>').appendTo($('.mCSB_container')).addClass('new');
     setDate();
     updateScrollbar();
     i++;
@@ -93,14 +93,14 @@ function FirstMessage() {
 function SecondMessage() {
 
 
-  setTimeout(function() {
-    $('.message.loading').remove();
-    $('<div class="message new">' + "Please choose a repository"+ '</div>').appendTo($('.mCSB_container')).addClass('new');
-
-    setDate();
-    updateScrollbar();
-    i++;
-  }, 1000);
+  // setTimeout(function() {
+  //   $('.message.loading').remove();
+  //   $('<div class="message new">' + "Please choose a repository"+ '</div>').appendTo($('.mCSB_container')).addClass('new');
+  //
+  //   setDate();
+  //   updateScrollbar();
+  //   i++;
+  // }, 1000);
 
     // This creates the buttons for the Kafka and Hibernate projects. On click, corresponding functions are called to
     // send a msg to the server with the projectID.
