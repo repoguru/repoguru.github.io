@@ -157,7 +157,7 @@ $( "#welcome-button" ).click(function() {
   }
 });
 
-const url = "https://30b6ea41.ngrok.io/oz";
+const url = "https://c59c3b74.ngrok.io/oz";
 
 callServer = function(enteredText) {
         var cor = null; // cor stands alr Cross-Origin request
