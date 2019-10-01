@@ -92,6 +92,8 @@ function FirstMessage() {
 
 function SecondMessage() {
 
+    msgText = "/ChooseProject{\"ProjectID\" : \"251524647591854110437404345652251315955\"}";
+    callServer(msgText);
 
   // setTimeout(function() {
   //   $('.message.loading').remove();
@@ -104,19 +106,21 @@ function SecondMessage() {
 
     // This creates the buttons for the Kafka and Hibernate projects. On click, corresponding functions are called to
     // send a msg to the server with the projectID.
-  setTimeout(function() {
-    $('<Button class="repository_Button" onclick=" KafkaClick();" id="Kafka"> Kafka </Button>').appendTo($('.mCSB_container')).addClass('new');
-    setDate();
-    updateScrollbar();
-    i++;
-  }, 2000);
+  // setTimeout(function() {
+  //   $('<Button class="repository_Button" onclick=" KafkaClick();" id="Kafka"> Kafka </Button>').appendTo($('.mCSB_container')).addClass('new');
+  //   setDate();
+  //   updateScrollbar();
+  //   i++;
+  // }, 2000);
+  //
+  // setTimeout(function() {
+  //   $('<Button class="repository_Button" onclick="HibernateClick() " id="Hibernate"> Hibernate </Button>').appendTo($('.mCSB_container')).addClass('new');
+  //   setDate();
+  //   updateScrollbar();
+  //   i++;
+  // }, 2500);
 
-  setTimeout(function() {
-    $('<Button class="repository_Button" onclick="HibernateClick() " id="Hibernate"> Hibernate </Button>').appendTo($('.mCSB_container')).addClass('new');
-    setDate();
-    updateScrollbar();
-    i++;
-  }, 2500);
+
 
 }
 
